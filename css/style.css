@@ -5588,3 +5588,15 @@ body::after {
     background-position: center !important;
     background-size: 300px auto !important;
 }
+
+/* Mobil – információs oldal főcím */
+@media (max-width: 600px) {
+    .information-section h2 {
+        font-size: clamp(28px, 8vw, 36px);
+        line-height: 1.08;
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+}
