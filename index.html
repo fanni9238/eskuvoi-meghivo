@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Fanni & Zsombi esküvője</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css?v=20260913-2"    >
+</head>
+
+<body>
+
+    <!-- Boríték kezdőképernyő -->
+<main class="opening-screen">
+
+    <div class="envelope">
+
+        <!-- Zárt boríték – induláskor ezt látjuk -->
+        <img
+            class="envelope-image"
+            src="assets/images/envelope/envelope-closed.png"
+            alt=""
+        >
+
+
+       <!-- Pecsét + növényi dísz közös kompozíció -->
+        <div class="seal-decoration">
+
+            <img
+                class="seal-branch"
+                src="assets/images/envelope/seal-branch.png"
+                alt=""
+            >
+
+            <button
+                class="seal-button"
+                type="button"
+                aria-label="Meghívó megnyitása az F és Zs pecséttel"
+            >
+                <!-- Az ép / repedő pecsét -->
+                <img
+                    class="seal-image seal-image-current"
+                    src="assets/images/envelope/seal-intact.png"
+                    alt=""
+                >
+
+                <img
+                    class="seal-image seal-image-next"
+                    src="assets/images/envelope/seal-intact.png"
+                    alt=""
+                >
+
+                <!-- A végén két elegánsan szétnyíló pecsétdarab -->
+                <span class="seal-pieces" aria-hidden="true">
+                    <img
+                        class="seal-piece seal-piece-left"
+                        src="assets/images/envelope/seal-broken.png"
+                        alt=""
+                    >
+
+                    <img
+                        class="seal-piece seal-piece-right"
+                        src="assets/images/envelope/seal-broken.png"
+                        alt=""
+                    >
+                </span>
+            </button>
+
+        </div>
+
+        <p class="opening-text">
+            Koppints a pecsétre!
+        </p>
+
+    </div>
+
+</main>
+
+
+<!-- Meghívó -->
+<section class="invitation hidden">
+
+    <img
+        class="olive tl"
+        src="assets/images/olive-top-left.png"
+        alt=""
+    >
+
+    <img
+        class="olive br"
+        src="assets/images/olive-bottom-right.png"
+        alt=""
+    >
+
+    <p class="overline">
+        Szeretettel meghívunk
+    </p>
+
+    <h1>
+        <span class="names">Fanni & Zsombi</span>
+
+        <span class="wedding-subtitle">
+            esküvőjére
+        </span>
+    </h1>
+
+    <p class="date">
+        2027. május 15.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="location">
+
+        <p class="venue-name">
+            Bukovszki Birtok
+        </p>
+
+        <p class="venue-address">
+            6000 Kecskemét
+
+            <span class="location-dot">•</span>
+
+            Méntelek tanya 152/A
+        </p>
+
+    </div>
+
+<div class="main-navigation">
+
+    <button
+        class="main-navigation-button information-button"
+        type="button"
+    >
+        <span class="main-navigation-label">
+            Információk
+        </span>
+
+        <span class="main-navigation-description">
+            Hasznos tudnivalók
+        </span>
+    </button>
+
+    <button
+        class="main-navigation-button program-button"
+        type="button"
+    >
+        <span class="main-navigation-label">
+            Program
+        </span>
+
+        <span class="main-navigation-description">
+            A nagy nap menetrendje
+        </span>
+    </button>
+
+</div>
+
+</section>
+
+<!-- Hasznos információk -->
+<section
+    id="information"
+    class="information-section hidden"
+>
+
+    <img
+        class="program-olive program-olive-top"
+        src="assets/images/olive-top-left.png"
+        alt=""
+    >
+
+     <nav
+        class="section-tabs"
+        aria-label="Esküvői oldalak"
+    >
+
+        <button
+            class="section-tab active information-button"
+            type="button"
+        >
+            Információk
+        </button>
+
+        <button
+            class="section-tab program-button"
+            type="button"
+        >
+            Program
+        </button>
+
+</nav>
+
+    <p class="program-overline">
+        Fanni & Zsombi esküvője
+    </p>
+
+<h2>Hasznos tudnivalók</h2>
+
+<div class="program-divider"></div>
+
+<div class="information-hint important-hint">
+
+    <span class="important-hint-label">
+        ✦ Fontos tudnivaló ✦
+    </span>
+
+    <strong>
+        Kérjük, nézd végig a füleket!
+    </strong>
+
+    <span class="important-hint-text">
+        Mindegyik fontos információt tartalmaz.
+    </span>
+
+    <span class="hint-arrow" aria-hidden="true">
+        ↓
+    </span>
+
+</div>
+
+<div class="information-accordion">
+
+    <!-- KIEMELT VISSZAJELZÉS -->
+    <div class="rsvp-feature">
+
+        <img
+            class="rsvp-feature-olive"
+            src="assets/images/olive-bottom-right.png"
+            alt=""
+        >
+
+        <div class="rsvp-feature-content">
+
+            <h3>
+                Visszajelzéseteket kérjük!
+            </h3>
+
+            <p>
+                Kérjük, jelezzetek vissza
+                <strong>2026. december 1-ig</strong>,
+                hogy megkönnyítsétek a szervezést!
+            </p>
+
+        </div>
+
+        <a
+            class="rsvp-feature-button"
+            href="https://forms.gle/NhVtPt8avWQAFhXU6"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <span>Visszajelzek</span>
+
+            <span
+                class="rsvp-button-arrow"
+                aria-hidden="true"
+            >
+                →
+            </span>
+        </a>
+
+    </div>
+
+
+    <!-- Dress code -->
+    <article class="info-item dress-code-item">
+
+        <div class="info-summary">
+
+            <span class="info-icon-circle">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
+                    <path d="M25 10l7 7 7-7"/>
+                    <path d="M25 10l-5 13 7 6-6 25h22l-6-25 7-6-5-13"/>
+                    <path d="M27 29h10"/>
+                </svg>
+            </span>
+
+            <span class="info-heading">
+                Dress code
+            </span>
+
+            <span class="info-badge">
+                Erősen ajánlott
+            </span>
+
+        </div>
+
+        <div class="info-panel">
+            <p>
+                Örülnénk, ha öltözésetekkel is kapcsolódnátok esküvőnk színvilágához. 🤎
+                <br>
+                <strong>Erősen ajánlott:</strong>
+                <span class="dress-brown">barna</span>,
+                <span class="dress-beige">bézs</span> és
+                <span class="dress-olive">olívazöld</span> árnyalatok.
+                <br>
+                <strong>Kérjük, kerüljétek:</strong> fehér, piros, élénksárga és rikító/neon színeket.
+            </p>
+        </div>
+
+    </article>
+
+    <!-- Szállás -->
+    <article class="info-item">
+
+        <div class="info-summary">
+
+            <span class="info-icon-circle">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M11 45V22"/>
+                    <path d="M53 45V31"/>
+                    <path d="M11 36h42"/>
+                    <path d="M15 26h18c5 0 8 3 8 8v2"/>
+                    <path d="M41 29h8c3 0 4 2 4 5v2"/>
+                    <path d="M11 45h42"/>
+                    <path d="M15 45v6M49 45v6"/>
+                </svg>
+            </span>
+
+            <span class="info-heading">
+                Szállás
+            </span>
+
+            <span class="info-badge">
+                Igényelhető
+            </span>
+
+
+        </div>
+
+        <div class="info-panel">
+            <p>
+                Igény esetén szálláslehetőség is rendelkezésre áll.
+                Ha szeretnétek élni vele, kérjük, jelezzétek a
+                visszajelző kérdőívben, ahol minden szükséges
+                információt megtaláltok.
+            </p>
+        </div>
+
+    </article>
+
+
+    <!-- Sofőrszolgálat -->
+    <article class="info-item">
+
+        <div class="info-summary">
+
+            <span class="info-icon-circle">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M14 38l5-13h26l5 13"/>
+                    <path d="M12 38h40v10H12z"/>
+                    <path d="M21 25l4-7h14l4 7"/>
+                    <circle cx="20" cy="49" r="4"/>
+                    <circle cx="44" cy="49" r="4"/>
+                    <path d="M18 34h28"/>
+                </svg>
+            </span>
+
+            <span class="info-heading">
+                Sofőrszolgálat
+            </span>
+
+            <span class="info-badge">
+                Biztosított
+            </span>
+
+
+        </div>
+
+        <div class="info-panel">
+            <p>
+                A szállást igénylő vendégeink számára
+                <strong>sofőrszolgálatot is biztosítunk</strong>,
+                így nyugodtan koccinthattok velünk az este folyamán. 🥂
+            </p>
+        </div>
+
+    </article>
+
+
+    <!-- Parkolás -->
+    <article class="info-item">
+
+        <div class="info-summary">
+
+            <span class="info-icon-circle">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="15" y="10" width="34" height="44" rx="5"/>
+                    <path d="M26 45V19h9c8 0 13 4 13 11s-5 11-13 11h-9"/>
+                    <path d="M26 31h9"/>
+                </svg>
+            </span>
+
+            <span class="info-heading">
+                Parkolás
+            </span>
+
+            <span class="info-badge">
+                Ingyenes
+            </span>
+
+
+        </div>
+
+        <div class="info-panel">
+            <p>
+                A helyszínen a vendégek számára
+                <strong>ingyenes parkolási lehetőség</strong>
+                biztosított.
+            </p>
+        </div>
+
+    </article>
+
+
+    <!-- Helyszín -->
+    <article class="info-item">
+
+        <div class="info-summary">
+
+            <span class="info-icon-circle">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M32 55s15-17 15-30a15 15 0 10-30 0c0 13 15 30 15 30z"/>
+                    <circle cx="32" cy="25" r="6"/>
+                    <path d="M22 52c-4 1-7 3-7 5"/>
+                    <path d="M42 52c4 1 7 3 7 5"/>
+                </svg>
+            </span>
+
+            <span class="info-heading">
+                Helyszín
+            </span>
+
+            <span class="info-badge">
+                Birtok
+            </span>
+
+
+        </div>
+
+        <div class="info-panel">
+
+            <p>
+                <strong>Bukovszki Birtok</strong><br>
+                6000 Kecskemét
+                <span class="information-dot">•</span>
+                Méntelek tanya 152/A
+            </p>
+
+            <a
+                class="map-button"
+                href="https://www.google.com/maps/search/?api=1&query=Bukovszki+Birtok+6000+Kecskemét+Méntelek+tanya+152%2FA"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Útvonal megnyitása
+            </a>
+
+        </div>
+
+    </article>
+
+    <!-- Zene kívánság -->
+    <article class="info-item music-request-item">
+
+        <div class="info-summary">
+
+            <span class="info-icon-circle">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M25 46V18l24-5v28"/>
+                    <path d="M25 24l24-5"/>
+                    <circle cx="18" cy="47" r="7"/>
+                    <circle cx="42" cy="42" r="7"/>
+                </svg>
+            </span>
+
+            <span class="info-heading">
+                Zene kívánság
+            </span>
+
+            <span class="info-badge">
+                Ajánlott
+            </span>
+
+        </div>
+
+        <div class="info-panel music-request-panel">
+
+            <p class="music-request-title">
+                Van egy szám, amire mindenképp táncolnál? 🎶
+            </p>
+
+            <p>
+                Dobd be előre a közös playlistünkbe, hogy az esküvőn
+                már csak a táncparkettre kelljen rohannod – ne a DJ-hez. 😄
+            </p>
+
+            <div class="music-request-buttons">
+
+                <a
+                    class="music-request-button spotify-button"
+                    href="https://open.spotify.com/playlist/1Za39ooe3jrEBN7tWW2lE2?si=cf5253cfbe514515&pt=1ca0551c743ce5aa617fe3255d781e06"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span class="music-button-icon">♫</span>
+                    <span>Spotify playlist</span>
+                    <span class="music-button-arrow">↗</span>
+                </a>
+
+                <a
+                    class="music-request-button sheet-button"
+                    href="https://docs.google.com/spreadsheets/d/1KP0j_vaXCUOEaAeMcu1S0G9tXZCyMuMiHuAeqZ14avM/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <span class="music-button-icon">＋</span>
+                    <span>Nincs Spotify-m</span>
+                    <span class="music-button-arrow">↗</span>
+                </a>
+
+            </div>
+
+            <p class="music-request-note">
+                Spotify nélkül a másik listába is beírhatod a kedvenc számodat.
+            </p>
+
+        </div>
+
+    </article>
+
+    <!-- Ajándékozás -->
+    <article class="info-item gift-item">
+
+        <div class="info-summary">
+
+            <span class="info-icon-circle">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="12" y="28" width="40" height="26" rx="2"/>
+                    <path d="M9 21h46v10H9z"/>
+                    <path d="M32 21v33"/>
+                    <path d="M32 21c-7 0-12-2-12-7 0-4 3-6 6-6 5 0 6 7 6 13z"/>
+                    <path d="M32 21c7 0 12-2 12-7 0-4-3-6-6-6-5 0-6 7-6 13z"/>
+                </svg>
+            </span>
+
+            <span class="info-heading">
+                Ajándékozás
+            </span>
+
+            <span class="info-badge">
+                Boríték
+            </span>
+
+
+        </div>
+
+        <div class="info-panel">
+            <p>
+                Ha ajándékkal is meglepnétek minket, egy
+                <strong>borítéknak örülünk a legjobban</strong> –
+                így nem kell eldöntenünk, melyik legyen a kedvenc
+                melegszendvicssütőnk. 🤎
+            </p>
+        </div>
+
+    </article>
+
+
+    <!-- Ültetési rend -->
+
+    
+
+</div>
+
+    <div class="information-footer-decoration">
+        <img
+            src="assets/images/olive-bottom-right.png"
+            alt=""
+        >
+    </div>
+
+    <button
+        class="back-button"
+        type="button"
+    >
+        Vissza a meghívóhoz
+    </button>
+
+</section>
+
+
+    <!-- Esküvői program -->
+    <section
+        id="program"
+        class="program-section hidden"
+    >
+
+        <img
+            class="program-olive program-olive-top"
+            src="assets/images/olive-top-left.png"
+            alt=""
+        >
+
+    <nav
+        class="section-tabs"
+        aria-label="Esküvői oldalak"
+    >
+        <button
+            class="section-tab information-button"
+            type="button"
+        >
+        Információk
+    </button>
+
+    <button
+        class="section-tab active program-button"
+        type="button"
+    >
+        Program
+    </button>
+
+
+</nav>
+
+        <p class="program-overline">
+            Fanni & Zsombi esküvője
+        </p>
+
+        <h2>Ünnepi program</h2>
+
+        <div class="program-divider"></div>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <img
+                    class="timeline-icon"
+                    src="assets/icons/program/champagne.png"
+                    alt=""
+                >
+
+                <time>16:00</time>
+
+                <div class="timeline-content">
+
+                    <h3>Vendégvárás</h3>
+
+                    <p>
+                        Megérkezés és közös koccintás
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <img
+                    class="timeline-icon"
+                    src="assets/icons/program/rings.png"
+                    alt=""
+                >
+
+                <time>17:00</time>
+
+                <div class="timeline-content">
+
+                    <h3>Polgári szertartás</h3>
+
+                    <p>
+                        Az erdei szertartáshelyszínen
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <img
+                    class="timeline-icon"
+                    src="assets/icons/program/camera.png"
+                    alt=""
+                >
+
+                <time>17:30</time>
+
+                <div class="timeline-content">
+
+                    <h3>Fotózás és gratulációk</h3>
+
+                    <p>
+                        Pezsgős köszöntés és közös fényképek
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <img
+                    class="timeline-icon"
+                    src="assets/icons/program/dinner.png"
+                    alt=""
+                >
+
+                <time>19:30</time>
+
+                <div class="timeline-content">
+
+                    <h3>Vacsora</h3>
+
+                    <p>
+                        Ünnepi vacsora a birtokon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <img
+                    class="timeline-icon"
+                    src="assets/icons/program/dance.png"
+                    alt=""
+                >
+
+                <time>21:30</time>
+
+                <div class="timeline-content">
+
+                    <h3>Nyitótánc</h3>
+
+                    <p>
+                        Majd kezdetét veszi a buli
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <img
+                    class="timeline-icon"
+                    src="assets/icons/program/cake.png"
+                    alt=""
+                >
+
+                <time>23:00</time>
+
+                <div class="timeline-content">
+
+                    <h3>Tortaceremónia</h3>
+
+                    <p>
+                        Édes pillanatok a csillagos ég alatt
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <img
+                    class="timeline-icon"
+                    src="assets/icons/program/dress.png"
+                    alt=""
+                >
+
+                <time>23:40</time>
+
+                <div class="timeline-content">
+
+                    <h3>Menyecsketánc</h3>
+
+                    <p>
+                        Az újasszony és az újember bevonulása
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <img
+                    class="timeline-icon timeline-icon-cloche"
+                    src="assets/icons/program/cloche.png"
+                    alt=""
+                >
+
+                <time>00:00</time>
+
+                <div class="timeline-content">
+
+                    <h3>Éjféli vacsora</h3>
+
+                    <p>
+                        Töltött káposzta az éjszakai mulatozáshoz
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <img
+                    class="timeline-icon"
+                    src="assets/icons/program/party.png"
+                    alt=""
+                >
+
+                <time>00:30</time>
+
+                <div class="timeline-content">
+
+                    <h3>Buli hajnalig</h3>
+
+                    <p>
+                        Folytatódik az ünneplés
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-footer-decoration">
+            <img
+                src="assets/images/olive-bottom-right.png"
+                alt=""
+            >
+        </div>
+
+        <button
+            class="back-button"
+            type="button"
+        >
+            Vissza a meghívóhoz
+        </button>
+
+    </section>
+
+
+<script src="js/script.js?v=20260912-5"></script>
+
+</body>
+
+</html>
