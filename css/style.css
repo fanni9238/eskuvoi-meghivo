@@ -5954,3 +5954,33 @@ body::after {
 .info-item.is-next-unread:not(.is-open) {
     animation: infoCardBreathing 1.8s ease-in-out infinite;
 }
+
+/* ==================================================
+   INFO KÁRTYÁK – STÁTUSZ BUBORÉKOK
+   picit nagyobb + hangsúlyosabb
+================================================== */
+
+@media (max-width: 600px) {
+
+    .info-badge {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+
+        padding: 9px 16px;
+        min-height: 36px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+
+        border-width: 1.5px;
+    }
+
+    .info-badge::before {
+        width: 7px;
+        height: 7px;
+        min-width: 7px;
+    }
+}
