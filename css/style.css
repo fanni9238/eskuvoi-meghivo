@@ -5765,9 +5765,20 @@ body::after {
 
 @media (max-width: 600px) {
 
-    /* Időpont pontosan a pötty függőleges közepén */
-    .timeline-item time {
-        transform: translateY(2px);
+    /* Időpont közepe pontosan az arany pötty közepén */
+    @media (max-width: 600px) {
+    
+        .timeline-item time {
+            align-self: center;
+            margin: 0;
+            transform: none;
+            line-height: 1;
+        }
+    
+        /* A cím + leírás picit lejjebb */
+        .timeline-content {
+            transform: translateY(6px);
+        }
     }
 
     /* Cím + leírás finoman lejjebb */
