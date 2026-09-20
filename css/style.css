@@ -3459,9 +3459,33 @@ body::after {
         text-align: center;
     }
 
+    /* Lenyitó nyíl helyzete mobilon */
     .info-summary::after {
         right: 25px;
         top: 65px;
+    }
+
+    /* Az első zárt kártya nyila finoman jelzi,
+       hogy a kártya lenyitható */
+    .info-item:first-of-type:not(.is-open) .info-summary::after {
+        animation: gentleArrowHint 1.4s ease-in-out 3;
+    }
+    
+    /* Elegáns, finom lefelé mozdulás */
+    @keyframes gentleArrowHint {
+    
+        0%,
+        100% {
+            margin-top: 0;
+        }
+    
+        40% {
+            margin-top: 5px;
+        }
+    
+        65% {
+            margin-top: 0;
+        }
     }
 
     .info-panel {
