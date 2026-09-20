@@ -5792,3 +5792,11 @@ body::after {
         transform: translateY(-50%);
     }
 }
+
+@media (max-width: 600px) {
+
+    .program-section .timeline-item:last-child time {
+        transform: translate(6px, 0px);
+    }
+
+}
