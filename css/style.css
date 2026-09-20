@@ -3447,23 +3447,19 @@ body::after {
 
 @media (max-width: 700px) {
 
-.information-hint {
-    width: 100%;
-    max-width: 440px;
-
-    margin: 0 auto 16px;
-
-    padding: 0 10px;
-
-    font-size: 11px;
-    line-height: 1.35;
-
-    text-align: center;
-}
+    .information-hint {
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto 16px;
+        padding: 0 10px;
+        font-size: 11px;
+        line-height: 1.35;
+        text-align: center;
+    }
 
     .info-summary::after {
-        right: 20px;
-        top: 68px;
+        right: 25px;
+        top: 74px;
     }
 
     .info-panel {
@@ -3472,6 +3468,19 @@ body::after {
 
     .info-item.is-open .info-panel {
         max-height: 900px;
+    }
+
+    /* Lenyitott információk mobilon */
+    .info-panel-inner {
+        padding-left: 24px;
+        padding-right: 24px;
+        text-align: left;
+    }
+
+    .info-panel-inner p {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
     }
 }
 /* ==================================================
