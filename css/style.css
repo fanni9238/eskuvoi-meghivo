@@ -2032,12 +2032,15 @@ body::after {
 
     .info-summary {
         min-height: 86px;
-
+    
         padding:
-            36px
-            42px
+            15px
+            52px
             15px
             86px;
+    
+        display: flex;
+        align-items: center;
     }
 
     .info-icon-circle {
@@ -3459,7 +3462,8 @@ body::after {
 }
 
     .info-summary::after {
-        right: 14px;
+        right: 20px;
+        top: 68px;
     }
 
     .info-panel {
