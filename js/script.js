@@ -441,14 +441,8 @@ infoItems.forEach((item) => {
         return;
     }
 
-const isDressCode =
-    item.classList.contains("dress-code-item");
-
-if (isDressCode) {
-    item.classList.add("is-open");
-} else {
-    item.classList.remove("is-open");
-}
+item.classList.remove("is-open");
+    
     summary.setAttribute(
         "role",
         "button"
@@ -460,9 +454,9 @@ if (isDressCode) {
     );
 
     summary.setAttribute(
-        "aria-expanded",
-        isDressCode ? "true" : "false"
-    );
+    "aria-expanded",
+    "false"
+);
 
 
     function toggleInfoItem() {
