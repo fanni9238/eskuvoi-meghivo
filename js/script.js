@@ -509,7 +509,30 @@ item.classList.remove("is-open");
 
     summary.addEventListener(
         "click",
-        toggleInfoItem
+        () => {
+    
+            const itemIndex =
+                Array.from(infoItems).indexOf(item);
+    
+            const wasOpen =
+                item.classList.contains("is-open");
+    
+            toggleInfoItem();
+    
+            /*
+                Csak akkor számítjuk megtekintettnek,
+                amikor ténylegesen kinyitotta.
+            */
+            if (
+                !wasOpen &&
+                itemIndex === currentInfoStep
+            ) {
+    
+                currentInfoStep++;
+    
+                updateInfoHint();
+            }
+        }
     );
 
 
