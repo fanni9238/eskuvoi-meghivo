@@ -5955,3 +5955,33 @@ body::after {
     animation: infoCardBreathing 1.8s ease-in-out infinite;
 }
 
+/* ==================================================
+   INFORMÁCIÓK – FINOMABB, LEVEGŐSEBB TÉRKÖZÖK
+================================================== */
+
+@media (max-width: 700px) {
+
+    /* Hasznos tudnivalók alatti arany vonal */
+    .information-section .program-divider {
+        margin-top: 10px;
+        margin-bottom: 11px;
+    }
+
+    /* Fontos tudnivaló segédszöveg */
+    .information-hint {
+        margin-bottom: 15px;
+        line-height: 1.35;
+    }
+
+    /* RSVP / Visszajelzés kártya */
+    .rsvp-feature {
+        margin-bottom: 18px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    /* RSVP szöveg és gomb között */
+    .rsvp-feature-button {
+        margin-top: 11px;
+    }
+}
