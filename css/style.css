@@ -5809,3 +5809,51 @@ body::after {
     }
 
 }
+
+/* ==================================================
+   PROGRAM – IKONOK EGYSÉGES VIZUÁLIS MÉRETE MOBILON
+================================================== */
+
+@media (max-width: 600px) {
+
+    .program-section .timeline-icon {
+        width: 94px;
+        height: 94px;
+
+        left: -132px;
+
+        transform:
+            translateY(-50%)
+            scale(1.62);
+
+        transform-origin: center;
+        object-fit: contain;
+    }
+
+    .program-section .timeline-item:hover .timeline-icon {
+        transform:
+            translateY(-50%)
+            scale(1.62);
+    }
+
+    /* Éjféli vacsora – ez már eleve nagynak látszik,
+       ezért ezt nem nagyítjuk tovább */
+    .program-section
+    .timeline-icon.timeline-icon-cloche {
+        width: 90px;
+        height: 90px;
+
+        left: -130px;
+
+        transform:
+            translateY(-50%)
+            scale(1);
+    }
+
+    .program-section .timeline-item:hover
+    .timeline-icon.timeline-icon-cloche {
+        transform:
+            translateY(-50%)
+            scale(1);
+    }
+}
