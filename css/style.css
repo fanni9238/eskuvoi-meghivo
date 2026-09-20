@@ -3444,10 +3444,19 @@ body::after {
 
 @media (max-width: 700px) {
 
-    .information-hint {
-        margin-bottom: 12px;
-        font-size: 12px;
-    }
+.information-hint {
+    width: 100%;
+    max-width: 440px;
+
+    margin: 0 auto 16px;
+
+    padding: 0 10px;
+
+    font-size: 11px;
+    line-height: 1.35;
+
+    text-align: center;
+}
 
     .info-summary::after {
         right: 14px;
