@@ -3465,29 +3465,24 @@ body::after {
         top: 65px;
     }
 
-    /* Az első zárt kártya nyila finoman jelzi,
-       hogy a kártya lenyitható */
-    .info-item:first-of-type:not(.is-open) .info-summary::after {
-        animation: gentleArrowHint 1.4s ease-in-out 3;
+    /* Felső lefelé mutató nyíl – finom pulzálás */
+    .hint-arrow {
+        display: inline-block;
+        animation: hintArrowPulse 1.5s ease-in-out infinite;
     }
     
-    /* Elegáns, finom lefelé mozdulás */
-    @keyframes gentleArrowHint {
-    
+    @keyframes hintArrowPulse {
         0%,
         100% {
-            margin-top: 0;
+            transform: translateY(0) scale(1);
+            opacity: 0.65;
         }
     
-        40% {
-            margin-top: 5px;
-        }
-    
-        65% {
-            margin-top: 0;
+        50% {
+            transform: translateY(5px) scale(1.12);
+            opacity: 1;
         }
     }
-
     .info-panel {
         max-height: 0;
     }
