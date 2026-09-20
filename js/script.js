@@ -429,6 +429,26 @@ backButtons.forEach((button) => {
 const infoItems =
     document.querySelectorAll(".info-item");
 
+/* ==================================================
+   INFORMÁCIÓS FÜLEK – VÉGIGVEZETÉS
+================================================== */
+
+let currentInfoStep = 0;
+
+function updateInfoHint() {
+
+    infoItems.forEach((item) => {
+        item.classList.remove("read-next");
+    });
+
+    if (currentInfoStep < infoItems.length) {
+        infoItems[currentInfoStep]
+            .classList.add("read-next");
+    }
+}
+
+updateInfoHint();
+
 infoItems.forEach((item) => {
 
     const summary =
