@@ -5756,3 +5756,20 @@ body::after {
 .map-button:hover {
     background: rgba(207, 218, 199, 0.9);
 }
+
+/* ==================================================
+   PROGRAM – MOBIL FINOM IGAZÍTÁS
+================================================== */
+
+@media (max-width: 600px) {
+
+    /* Időpont pontosan a pötty függőleges közepén */
+    .timeline-item time {
+        transform: translateY(2px);
+    }
+
+    /* Cím + leírás finoman lejjebb */
+    .timeline-content {
+        transform: translateY(6px);
+    }
+}
