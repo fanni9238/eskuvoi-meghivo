@@ -5811,16 +5811,18 @@ body::after {
 }
 
 /* ==================================================
-   PROGRAM – IKONOK EGYSÉGES MÉRETE MOBILON
+   PROGRAM – IKONOK VÉGSŐ MÉRETE ÉS POZÍCIÓJA MOBILON
 ================================================== */
 
 @media (max-width: 600px) {
 
+    /* Összes programikon */
     .program-section .timeline-icon {
         width: 78px;
         height: 78px;
 
-        left: -105px;
+        /* közelebb az arany vonalhoz */
+        left: -92px;
 
         transform:
             translateY(-50%)
@@ -5836,23 +5838,25 @@ body::after {
             scale(1.25);
     }
 
-    /* Éjféli vacsora */
+
+    /* ÉJFÉLI VACSORA
+       A PNG rajza eleve nagyobb, ezért ezt visszavesszük */
     .program-section
     .timeline-icon.timeline-icon-cloche {
         width: 78px;
         height: 78px;
 
-        left: -105px;
+        left: -92px;
 
         transform:
             translateY(-50%)
-            scale(1.25);
+            scale(0.82);
     }
 
     .program-section .timeline-item:hover
     .timeline-icon.timeline-icon-cloche {
         transform:
             translateY(-50%)
-            scale(1.25);
+            scale(0.82);
     }
 }
