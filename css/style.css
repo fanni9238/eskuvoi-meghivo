@@ -5811,20 +5811,20 @@ body::after {
 }
 
 /* ==================================================
-   PROGRAM – IKONOK EGYSÉGES VIZUÁLIS MÉRETE MOBILON
+   PROGRAM – IKONOK EGYSÉGES MÉRETE MOBILON
 ================================================== */
 
 @media (max-width: 600px) {
 
     .program-section .timeline-icon {
-        width: 94px;
-        height: 94px;
+        width: 78px;
+        height: 78px;
 
-        left: -132px;
+        left: -105px;
 
         transform:
             translateY(-50%)
-            scale(1.62);
+            scale(1.25);
 
         transform-origin: center;
         object-fit: contain;
@@ -5833,27 +5833,26 @@ body::after {
     .program-section .timeline-item:hover .timeline-icon {
         transform:
             translateY(-50%)
-            scale(1.62);
+            scale(1.25);
     }
 
-    /* Éjféli vacsora – ez már eleve nagynak látszik,
-       ezért ezt nem nagyítjuk tovább */
+    /* Éjféli vacsora */
     .program-section
     .timeline-icon.timeline-icon-cloche {
-        width: 90px;
-        height: 90px;
+        width: 78px;
+        height: 78px;
 
-        left: -130px;
+        left: -105px;
 
         transform:
             translateY(-50%)
-            scale(1);
+            scale(1.25);
     }
 
     .program-section .timeline-item:hover
     .timeline-icon.timeline-icon-cloche {
         transform:
             translateY(-50%)
-            scale(1);
+            scale(1.25);
     }
 }
