@@ -5742,3 +5742,17 @@ body::after {
         opacity: 1;
     }
 }
+
+/* ==================================================
+   ÚTVONAL GOMB – HALVÁNY ZSÁLYAZÖLD
+================================================== */
+
+.map-button {
+    background: rgba(218, 226, 211, 0.72);
+    border: 1px solid rgba(112, 132, 103, 0.45);
+    color: #556b52;
+}
+
+.map-button:hover {
+    background: rgba(207, 218, 199, 0.9);
+}
