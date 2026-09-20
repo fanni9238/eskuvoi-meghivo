@@ -2112,15 +2112,17 @@ body::after {
 .info-panel {
     margin:
         0
-        14px
+        20px
         0
-        86px;
+        20px;
 
     padding:
         0
         0
         18px
         0;
+
+    text-align: left;
 }
 
     .info-panel p {
@@ -3459,7 +3461,7 @@ body::after {
 
     .info-summary::after {
         right: 25px;
-        top: 74px;
+        top: 65px;
     }
 
     .info-panel {
