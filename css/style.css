@@ -5927,7 +5927,7 @@ body::after {
 }
 
 /* ==================================================
-   INFO KÁRTYA – FINOM "LÉLEGZŐ" KIEMELÉS
+   INFO KÁRTYA – FINOM, DE JÓL LÁTHATÓ LÜKTETÉS
 ================================================== */
 
 @keyframes infoCardBreathing {
@@ -5942,15 +5942,15 @@ body::after {
 
     50% {
         box-shadow:
-            0 5px 16px rgba(70, 80, 65, 0.10),
-            0 0 12px rgba(190, 155, 90, 0.16);
+            0 6px 18px rgba(70, 80, 65, 0.14),
+            0 0 18px rgba(190, 155, 90, 0.32);
 
-        background-color: rgba(255, 250, 238, 0.18);
+        background-color: rgba(255, 248, 230, 0.28);
     }
 }
 
 
-/* Csak a következő, még meg nem nyitott kártya */
+/* Mindig csak a következő meg nem nézett kártya lüktet */
 .info-item.is-next-unread:not(.is-open) {
-    animation: infoCardBreathing 2.4s ease-in-out infinite;
+    animation: infoCardBreathing 1.8s ease-in-out infinite;
 }
