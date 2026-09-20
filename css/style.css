@@ -5759,30 +5759,26 @@ body::after {
     color: #ffffff;
 }
 
+
 /* ==================================================
-   PROGRAM – MOBIL FINOM IGAZÍTÁS
+   PROGRAM – MOBIL PONTOS IGAZÍTÁS
 ================================================== */
 
 @media (max-width: 600px) {
 
-    /* Időpont közepe pontosan az arany pötty közepén */
-    @media (max-width: 600px) {
-    
-        .timeline-item time {
-            align-self: center;
-            margin: 0;
-            transform: none;
-            line-height: 1;
-        }
-    
-        /* A cím + leírás picit lejjebb */
-        .timeline-content {
-            transform: translateY(6px);
-        }
+    /* Az időpont közepe legyen az arany pötty közepén */
+    .timeline-item time {
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        align-self: start;
+        margin-top: 7px;
     }
 
-    /* Cím + leírás finoman lejjebb */
+    /* A cím és a leírás picit lejjebb kerüljön */
     .timeline-content {
-        transform: translateY(6px);
+        position: relative;
+        top: 4px;
+        transform: none;
     }
 }
