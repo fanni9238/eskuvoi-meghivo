@@ -424,30 +424,35 @@ backButtons.forEach((button) => {
 
 /* ==================================================
    INFORMÁCIÓS KÁRTYÁK – TÖBB IS NYITVA MARADHAT
+   + KÖVETKEZŐ OLVASATLAN KÁRTYA JELZÉSE
 ================================================== */
 
 const infoItems =
     document.querySelectorAll(".info-item");
 
-/* ==================================================
-   INFORMÁCIÓS FÜLEK – VÉGIGVEZETÉS
-================================================== */
 
-let currentInfoStep = 0;
+/* Megkeresi az első olyan kártyát,
+   amit még egyszer sem nyitottak meg */
 
-function updateInfoHint() {
+function updateNextUnread() {
 
     infoItems.forEach((item) => {
-        item.classList.remove("read-next");
+        item.classList.remove("is-next-unread");
     });
 
-    if (currentInfoStep < infoItems.length) {
-        infoItems[currentInfoStep]
-            .classList.add("read-next");
+    const nextUnread =
+        Array.from(infoItems).find(
+            (item) =>
+                item.dataset.visited !== "true"
+        );
+
+    if (nextUnread) {
+        nextUnread.classList.add(
+            "is-next-unread"
+        );
     }
 }
 
-updateInfoHint();
 
 infoItems.forEach((item) => {
 
@@ -461,8 +466,14 @@ infoItems.forEach((item) => {
         return;
     }
 
-item.classList.remove("is-open");
-    
+
+    /* Induláskor minden kártya zárva */
+
+    item.classList.remove("is-open");
+
+    item.dataset.visited = "false";
+
+
     summary.setAttribute(
         "role",
         "button"
@@ -474,15 +485,18 @@ item.classList.remove("is-open");
     );
 
     summary.setAttribute(
-    "aria-expanded",
-    "false"
-);
+        "aria-expanded",
+        "false"
+    );
 
 
     function toggleInfoItem() {
 
         const isOpen =
             item.classList.contains("is-open");
+
+
+        /* Ha nyitva van → bezárjuk */
 
         if (isOpen) {
 
@@ -495,6 +509,8 @@ item.classList.remove("is-open");
 
         } else {
 
+            /* Ha zárva van → kinyitjuk */
+
             item.classList.add("is-open");
 
             summary.setAttribute(
@@ -502,39 +518,30 @@ item.classList.remove("is-open");
                 "true"
             );
 
-        }
 
+            /* Megjegyezzük, hogy ezt
+               már legalább egyszer megnyitották */
+
+            item.dataset.visited = "true";
+
+
+            /* A pulzálás átkerül
+               a következő olvasatlan kártyára */
+
+            updateNextUnread();
+        }
     }
 
 
+    /* Egér / érintés */
+
     summary.addEventListener(
         "click",
-        () => {
-    
-            const itemIndex =
-                Array.from(infoItems).indexOf(item);
-    
-            const wasOpen =
-                item.classList.contains("is-open");
-    
-            toggleInfoItem();
-    
-            /*
-                Csak akkor számítjuk megtekintettnek,
-                amikor ténylegesen kinyitotta.
-            */
-            if (
-                !wasOpen &&
-                itemIndex === currentInfoStep
-            ) {
-    
-                currentInfoStep++;
-    
-                updateInfoHint();
-            }
-        }
+        toggleInfoItem
     );
 
+
+    /* Billentyűzet */
 
     summary.addEventListener(
         "keydown",
@@ -548,10 +555,13 @@ item.classList.remove("is-open");
                 event.preventDefault();
 
                 toggleInfoItem();
-
             }
-
         }
     );
 
 });
+
+
+/* Induláskor a Dress code kapja a jelzést */
+
+updateNextUnread();
