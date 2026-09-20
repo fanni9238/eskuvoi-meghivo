@@ -5925,3 +5925,32 @@ body::after {
         transform: translateY(12px);
     }
 }
+
+/* ==================================================
+   INFO KÁRTYA – FINOM "LÉLEGZŐ" KIEMELÉS
+================================================== */
+
+@keyframes infoCardBreathing {
+
+    0%, 100% {
+        box-shadow:
+            0 3px 10px rgba(70, 80, 65, 0.06),
+            0 0 0 rgba(190, 155, 90, 0);
+
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 5px 16px rgba(70, 80, 65, 0.10),
+            0 0 12px rgba(190, 155, 90, 0.16);
+
+        background-color: rgba(255, 250, 238, 0.18);
+    }
+}
+
+
+/* Csak a következő, még meg nem nyitott kártya */
+.info-item.is-next-unread:not(.is-open) {
+    animation: infoCardBreathing 2.4s ease-in-out infinite;
+}
