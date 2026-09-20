@@ -5744,17 +5744,19 @@ body::after {
 }
 
 /* ==================================================
-   ÚTVONAL GOMB – HALVÁNY ZSÁLYAZÖLD
+   ÚTVONAL GOMB – SPOTIFY GOMBBAL AZONOS ZÖLD STÍLUS
 ================================================== */
 
 .map-button {
-    background: rgba(218, 226, 211, 0.72);
-    border: 1px solid rgba(112, 132, 103, 0.45);
-    color: #556b52;
+    background: #667b61;
+    border: 1px solid #667b61;
+    color: #ffffff;
 }
 
 .map-button:hover {
-    background: rgba(207, 218, 199, 0.9);
+    background: #596e55;
+    border-color: #596e55;
+    color: #ffffff;
 }
 
 /* ==================================================
