@@ -3465,25 +3465,7 @@ body::after {
         top: 65px;
     }
 
-    /* Felső lefelé mutató nyíl – finom pulzálás */
-    .hint-arrow {
-        display: inline-block;
-        animation: hintArrowPulse 1.5s ease-in-out infinite;
-    }
-    
-    @keyframes hintArrowPulse {
-        0%,
-        100% {
-            transform: translateY(0) scale(1);
-            opacity: 0.65;
-        }
-    
-        50% {
-            transform: translateY(5px) scale(1.12);
-            opacity: 1;
-        }
-    }
-    .info-panel {
+       .info-panel {
         max-height: 0;
     }
 
