@@ -5873,6 +5873,38 @@ body::after {
 }
 
 /* ==================================================
+   PROGRAM – TÖBBSOROS SZÖVEGEK FINOM IGAZÍTÁSA
+================================================== */
+
+@media (max-width: 600px) {
+
+    /* Fotózás és gratulációk */
+    .program-section .timeline-item:nth-child(3)
+    .timeline-content {
+        transform: translateY(12px);
+    }
+
+    /* Tortaceremónia */
+    .program-section .timeline-item:nth-child(6)
+    .timeline-content {
+        transform: translateY(12px);
+    }
+
+    /* Menyecsketánc */
+    .program-section .timeline-item:nth-child(7)
+    .timeline-content {
+        transform: translateY(12px);
+    }
+
+    /* Éjféli vacsora */
+    .program-section .timeline-item:nth-child(8)
+    .timeline-content {
+        transform: translateY(12px);
+    }
+
+}
+
+/* ==================================================
    PROGRAM – TÖBBSOROS SZÖVEGEK OPTIKAI IGAZÍTÁSA
 ================================================== */
 
