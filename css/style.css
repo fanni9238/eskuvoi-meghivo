@@ -5773,7 +5773,7 @@ body::after {
 
     /* Időpont pontosan a pötty középvonalára */
     .program-section .timeline-item time {
-        transform: translateY(0);
+        transform: translate(6px, 5px);
         align-self: center;
         line-height: 1;
     }
