@@ -5759,26 +5759,36 @@ body::after {
     color: #ffffff;
 }
 
-
 /* ==================================================
-   PROGRAM – MOBIL PONTOS IGAZÍTÁS
+   PROGRAM – MOBIL VÉGSŐ IGAZÍTÁS
+   pötty + időpont + szöveg
 ================================================== */
 
 @media (max-width: 600px) {
 
-    /* Az időpont közepe legyen az arany pötty közepén */
-    .timeline-item time {
-        position: relative;
-        top: 0;
-        transform: translateY(0);
-        align-self: start;
-        margin-top: 7px;
+    /* A sor maradjon függőlegesen középre rendezve */
+    .program-section .timeline-item {
+        align-items: center;
     }
 
-    /* A cím és a leírás picit lejjebb kerüljön */
-    .timeline-content {
-        position: relative;
-        top: 4px;
-        transform: none;
+    /* Időpont pontosan a pötty középvonalára */
+    .program-section .timeline-item time {
+        transform: translateY(0);
+        align-self: center;
+        line-height: 1;
+    }
+
+    /* Cím + leírás picit lejjebb,
+       hogy optikailag szebb legyen */
+    .program-section .timeline-content {
+        transform: translateY(5px);
+        align-self: center;
+    }
+
+    /* A pötty maradjon matematikailag
+       a sor közepén */
+    .program-section .timeline-item::before {
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
