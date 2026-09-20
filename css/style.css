@@ -5800,3 +5800,12 @@ body::after {
     }
 
 }
+
+@media (max-width: 600px) {
+
+    .program-section .photo-title {
+        font-size: 18px;
+        white-space: nowrap;
+    }
+
+}
