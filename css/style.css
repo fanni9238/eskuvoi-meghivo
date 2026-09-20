@@ -5801,15 +5801,6 @@ body::after {
 
 }
 
-@media (max-width: 600px) {
-
-    .program-section .photo-title {
-        font-size: 18px;
-        white-space: nowrap;
-    }
-
-}
-
 /* ==================================================
    PROGRAM – IKONOK VÉGSŐ MÉRETE ÉS POZÍCIÓJA MOBILON
 ================================================== */
@@ -5860,3 +5851,24 @@ body::after {
             scale(0.82);
     }
 }
+
+/* ==================================================
+   PROGRAM – MOBIL SZÖVEGEK FINOMHANGOLÁSA
+================================================== */
+
+@media (max-width: 600px) {
+
+    /* Minden programpont címe + leírása picit lejjebb */
+    .program-section .timeline-content {
+        transform: translateY(5px);
+    }
+
+    /* Fotózás és gratulációk – férjen ki egy sorban */
+    .program-section .photo-title {
+        font-size: 16px;
+        line-height: 1.1;
+        white-space: nowrap;
+        letter-spacing: -0.3px;
+    }
+}
+
