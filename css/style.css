@@ -5872,3 +5872,30 @@ body::after {
     }
 }
 
+/* ==================================================
+   PROGRAM – TÖBBSOROS SZÖVEGEK OPTIKAI IGAZÍTÁSA
+================================================== */
+
+@media (max-width: 600px) {
+
+    /* Ha a leírás két soros, a teljes szövegblokk
+       picit lejjebb kerül */
+    .program-section .timeline-item:has(.timeline-content p)
+    .timeline-content {
+        --extra-offset: 0px;
+    }
+
+    /* Tortaceremónia */
+    .program-section .timeline-item:nth-child(6)
+    .timeline-content,
+
+    /* Menyecsketánc */
+    .program-section .timeline-item:nth-child(7)
+    .timeline-content,
+
+    /* Éjféli vacsora */
+    .program-section .timeline-item:nth-child(8)
+    .timeline-content {
+        transform: translateY(12px);
+    }
+}
