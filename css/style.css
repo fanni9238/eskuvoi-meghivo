@@ -501,10 +501,10 @@ body::after {
 
 /* Bal felső olajág */
 .tl {
-    top: 5px;
-    left: 5px;
+    top: 18px;
+    left: 18px;
 
-    width: 105px;
+    width: 165px;
 
     transform: rotate(30deg);
     transform-origin: center;
@@ -512,10 +512,10 @@ body::after {
 
 /* Jobb alsó olajág */
 .br {
-    width: 180px;
+    width: 190px;
 
-    right: 1px;
-    bottom: 20px;
+    right: 18px;
+    bottom: 18px;
 
     transform: rotate(90deg);
     transform-origin: center;
