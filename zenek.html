@@ -425,13 +425,6 @@
 
                 <tbody id="songList">
 
-                    <!-- Próbasor – később a Google Sheet tölti be -->
-                    <tr>
-                        <td>ABBA</td>
-                        <td>Money, Money, Money</td>
-                        <td></td>
-                    </tr>
-
                 </tbody>
 
             </table>
@@ -451,5 +444,207 @@
 
 </main>
 
+<script>
+const API_URL =
+    "https://script.google.com/macros/s/AKfycbzJdxTJpTpn4ofBgbdcpqqEE1qpu22vLSOJaQqsL8PZ3De4VHeKgxRWs_nD6zWtPabJ6Q/exec";
+
+const songList = document.getElementById("songList");
+const songTable = document.getElementById("songTable");
+const emptyMessage = document.getElementById("emptyMessage");
+
+const artistInput = document.getElementById("artist");
+const songInput = document.getElementById("song");
+const noteInput = document.getElementById("note");
+
+const addSongButton = document.getElementById("addSongButton");
+
+
+/* =========================
+   ZENÉK BETÖLTÉSE
+========================= */
+
+async function loadSongs() {
+
+    try {
+
+        const response = await fetch(
+            API_URL + "?action=getSongs"
+        );
+
+        if (!response.ok) {
+            throw new Error("Nem sikerült betölteni a listát.");
+        }
+
+        const songs = await response.json();
+
+        songList.innerHTML = "";
+
+        if (!songs.length) {
+
+            songTable.style.display = "none";
+            emptyMessage.style.display = "block";
+            return;
+        }
+
+        songTable.style.display = "table";
+        emptyMessage.style.display = "none";
+
+
+        songs.forEach(item => {
+
+            const row = document.createElement("tr");
+
+            const artistCell = document.createElement("td");
+            const songCell = document.createElement("td");
+            const noteCell = document.createElement("td");
+
+            artistCell.textContent = item.artist || "";
+            songCell.textContent = item.song || "";
+            noteCell.textContent = item.note || "";
+
+            row.appendChild(artistCell);
+            row.appendChild(songCell);
+            row.appendChild(noteCell);
+
+            songList.appendChild(row);
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        songList.innerHTML = `
+            <tr>
+                <td colspan="3" style="text-align:center;">
+                    A zenelistát most nem sikerült betölteni.
+                </td>
+            </tr>
+        `;
+    }
+}
+
+
+/* =========================
+   ÚJ ZENE HOZZÁADÁSA
+========================= */
+
+async function addSong() {
+
+    const artist = artistInput.value.trim();
+    const song = songInput.value.trim();
+    const note = noteInput.value.trim();
+
+
+    if (!artist || !song) {
+
+        alert(
+            "Kérlek, add meg az előadót és a zene címét. 🎶"
+        );
+
+        return;
+    }
+
+
+    addSongButton.disabled = true;
+    addSongButton.textContent = "Hozzáadás...";
+
+
+    try {
+
+        const formData = new URLSearchParams();
+
+        formData.append("artist", artist);
+        formData.append("song", song);
+        formData.append("note", note);
+
+
+        await fetch(API_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+        });
+
+
+        artistInput.value = "";
+        songInput.value = "";
+        noteInput.value = "";
+
+
+        addSongButton.textContent = "✓ Hozzáadva";
+
+
+        /*
+        Adunk a Google Sheetnek egy kis időt,
+        majd újratöltjük a közös listát.
+        */
+
+        await new Promise(resolve =>
+            setTimeout(resolve, 1200)
+        );
+
+
+        await loadSongs();
+
+
+        setTimeout(() => {
+
+            addSongButton.textContent =
+                "＋ Hozzáadás a listához";
+
+        }, 1800);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Nem sikerült hozzáadni a zenét. Kérlek, próbáld újra."
+        );
+
+        addSongButton.textContent =
+            "＋ Hozzáadás a listához";
+    }
+
+
+    addSongButton.disabled = false;
+}
+
+
+/* Gomb */
+
+addSongButton.addEventListener(
+    "click",
+    addSong
+);
+
+
+/* Enterrel is beküldhető */
+
+[
+    artistInput,
+    songInput,
+    noteInput
+].forEach(input => {
+
+    input.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Enter") {
+                addSong();
+            }
+
+        }
+    );
+
+});
+
+
+/* Oldal megnyitásakor betöltjük a Sheetet */
+
+loadSongs();
+</script>
+    
 </body>
 </html>
