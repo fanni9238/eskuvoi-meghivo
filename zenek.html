@@ -38,46 +38,68 @@
             user-select: none;
         }
         
-        .botanical-bottom {
-            width: 220px;
-            bottom: 70px;
-            left: 0;
+        .bottom-decoration {
+            position: relative;
+            height: 150px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .bottom-decoration img {
+            position: absolute;
+            width: 250px;
+            left: -20px;
+            top: 5px;
+            pointer-events: none;
+            user-select: none;
         }
         
         @media (max-width: 520px) {
-        
-            .botanical-bottom {
-                width: 185px;
-                bottom: 65px;
-                left: 0;
+            .bottom-decoration {
+                height: 135px;
+                margin-top: 5px;
             }
-        }   
+        
+            .bottom-decoration img {
+                width: 220px;
+                left: -15px;
+                top: 0;
+            }
+        } 
 
         .top-decoration {
-            height: 90px;
+            height: 48px;
             position: relative;
         }
         
         .top-decoration img {
             position: absolute;
             width: 190px;
-            right: -35px;
-            top: -25px;
+        
+            right: -25px;
+            top: -28px;
+        
+            transform: scaleY(-1);
+        
             pointer-events: none;
+            user-select: none;
         }
         
         @media (max-width: 520px) {
+        
             .top-decoration {
-                height: 80px;
+                height: 45px;
             }
         
             .top-decoration img {
-                width: 165px;
-                right: -25px;
-                top: -20px;
-            }
-        }
+                width: 175px;
         
+                right: -20px;
+                top: -25px;
+        
+                transform: scaleY(-1);
+            }
+        }        
         .content {
             position: relative;
             z-index: 2;
@@ -413,12 +435,6 @@
 
 <main class="music-page">
 
-    <img
-        src="assets/images/playlist/olive-bottom-left.png"
-        class="botanical botanical-bottom"
-        alt=""
-    >
-
     <div class="content">
 
         <a href="index.html" class="back-link">
@@ -530,6 +546,13 @@
         <p class="footer-text">
             A kívánságok közös listába kerülnek, így együtt állítjuk össze az este zenéit. 🤎
         </p>
+
+        <div class="bottom-decoration">
+            <img
+                src="assets/images/playlist/olive-bottom-left.png"
+                alt=""
+            >
+        </div>
 
     </div>
 
