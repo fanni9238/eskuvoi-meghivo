@@ -272,6 +272,52 @@
             font-style: italic;
         }
 
+        /* Saját zene szerkesztése és törlése */
+
+        .song-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin-top: 7px;
+        }
+        
+        .song-edit-button,
+        .song-delete-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        
+            width: 29px;
+            height: 29px;
+        
+            padding: 0;
+        
+            border: 1px solid rgba(125, 141, 105, 0.25);
+            border-radius: 50%;
+        
+            background: rgba(255, 255, 255, 0.65);
+        
+            cursor: pointer;
+        
+            font-size: 13px;
+        
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+        
+        .song-edit-button:hover,
+        .song-delete-button:hover {
+            transform: translateY(-1px);
+            background: #ffffff;
+        }
+        
+        .song-edit-button:active,
+        .song-delete-button:active {
+            transform: scale(0.94);
+        }
+        
         .footer-text {
             margin: 32px auto 0;
             max-width: 430px;
