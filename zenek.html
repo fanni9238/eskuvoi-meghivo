@@ -29,50 +29,42 @@
             overflow: hidden;
         }
 
-        /* Finom növényi díszítés */
-        .leaf {
+        /* Akvarell olívaág díszítések */
+
+        .botanical {
             position: absolute;
-            width: 230px;
-            height: 230px;
+            z-index: 1;
             pointer-events: none;
-            opacity: 0.16;
+            user-select: none;
         }
-
-        .leaf-top {
-            top: -70px;
-            right: -75px;
-            transform: rotate(20deg);
+        
+        .botanical-top {
+            width: 280px;
+            top: -35px;
+            right: -65px;
+            transform: rotate(8deg);
         }
-
-        .leaf-bottom {
-            bottom: -80px;
-            left: -90px;
-            transform: rotate(205deg);
+        
+        .botanical-bottom {
+            width: 300px;
+            bottom: -35px;
+            left: -70px;
+            transform: rotate(-5deg);
         }
-
-        .leaf::before,
-        .leaf::after {
-            content: "";
-            position: absolute;
-        }
-
-        .leaf::before {
-            width: 190px;
-            height: 2px;
-            background: #758263;
-            left: 20px;
-            top: 110px;
-            transform: rotate(-30deg);
-        }
-
-        .leaf::after {
-            width: 150px;
-            height: 120px;
-            border-radius: 100% 0 100% 0;
-            border: 2px solid #758263;
-            left: 35px;
-            top: 45px;
-            transform: rotate(-25deg);
+        
+        @media (max-width: 520px) {
+        
+            .botanical-top {
+                width: 190px;
+                top: -20px;
+                right: -55px;
+            }
+        
+            .botanical-bottom {
+                width: 210px;
+                bottom: -20px;
+                left: -60px;
+            }
         }
 
         .content {
@@ -406,8 +398,17 @@
 
 <main class="music-page">
 
-    <div class="leaf leaf-top"></div>
-    <div class="leaf leaf-bottom"></div>
+    <img
+        src="assets/images/playlist/olive-bottom-right.png"
+        class="botanical botanical-top"
+        alt=""
+    >
+
+    <img
+        src="assets/images/playlist/olive-bottom-left.png"
+        class="botanical botanical-bottom"
+        alt=""
+    >
 
     <div class="content">
 
