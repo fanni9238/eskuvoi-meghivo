@@ -463,6 +463,28 @@ body::after {
 }
 
 
+/* Halvány akvarell növények a meghívó hátterében */
+
+.invitation::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        url("../assets/images/playlist/olive-background-shadow.png");
+
+    background-repeat: repeat-y;
+    background-position: center top;
+    background-size: 100% auto;
+
+    opacity: 0.10;
+
+    pointer-events: none;
+    z-index: 0;
+
+    border-radius: inherit;
+}
+
 /* Olajágak */
 
 .olive {
