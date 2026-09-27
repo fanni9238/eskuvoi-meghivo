@@ -38,35 +38,33 @@
             user-select: none;
         }
         
-        .bottom-decoration {
+       .bottom-decoration {
             position: relative;
-            height: 150px;
-            margin-top: 5px;
-            overflow: hidden;
+            width: 100%;
+            margin-top: 18px;
+            text-align: center;
         }
         
         .bottom-decoration img {
-            position: absolute;
-            width: 250px;
-            left: -20px;
-            top: 5px;
+            display: block;
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            margin: 0 auto;
             pointer-events: none;
             user-select: none;
         }
         
         @media (max-width: 520px) {
             .bottom-decoration {
-                height: 135px;
-                margin-top: 5px;
+                margin-top: 14px;
             }
         
             .bottom-decoration img {
-                width: 220px;
-                left: -15px;
-                top: 0;
+                width: 100%;
+                max-width: none;
             }
-        } 
-
+        }
         .top-decoration {
             height: 48px;
             position: relative;
@@ -549,7 +547,7 @@
 
         <div class="bottom-decoration">
             <img
-                src="assets/images/playlist/olive-bottom-left.png"
+                src="assets/images/playlist/olive-bottom-garland.png"
                 alt=""
             >
         </div>
