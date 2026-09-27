@@ -504,15 +504,14 @@ body::after {
     top: 18px;
     left: 18px;
 
-    width: 165px;
+    width: 105px;
 
     transform: rotate(30deg);
     transform-origin: center;
 }
 
-/* Jobb alsó olajág */
 .br {
-    width: 190px;
+    width: 140px;
 
     right: 18px;
     bottom: 18px;
