@@ -511,9 +511,9 @@ body::after {
 }
 
 .br {
-    width: 140px;
+    width: 155px;
 
-    right: 18px;
+    right: 5px;
     bottom: 18px;
 
     transform: rotate(90deg);
