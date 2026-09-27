@@ -565,3 +565,52 @@ infoItems.forEach((item) => {
 /* Induláskor a Dress code kapja a jelzést */
 
 updateNextUnread();
+
+/* ==================================================
+   VISSZATÉRÉS A ZENE KÍVÁNSÁG RÉSZHEZ
+================================================== */
+
+const urlParams = new URLSearchParams(window.location.search);
+
+if (urlParams.get("open") === "music") {
+
+    /* Boríték kihagyása */
+    if (openingScreen) {
+        openingScreen.style.display = "none";
+    }
+
+    /* Információk oldal megnyitása */
+    showInformation();
+
+    const musicRequestItem =
+        document.getElementById("zene-kivansag");
+
+    if (musicRequestItem) {
+
+        /* Zene kívánság kártya kinyitása */
+        musicRequestItem.classList.add("is-open");
+        musicRequestItem.dataset.visited = "true";
+
+        const musicSummary =
+            musicRequestItem.querySelector(".info-summary");
+
+        if (musicSummary) {
+            musicSummary.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+        }
+
+        updateNextUnread();
+
+        /* Megvárjuk, amíg a kártya kinyílik */
+        window.setTimeout(() => {
+
+            musicRequestItem.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }, 250);
+    }
+}
