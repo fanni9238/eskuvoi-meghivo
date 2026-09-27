@@ -6017,11 +6017,11 @@ body::after {
 .olive-top-corner-large {
     position: absolute;
 
-    top: -25px;
-    left: -25px;
+    top: -15px;
+    left: -15px;
 
-    width: 210px;
-    height: 210px;
+    width: 230px;
+    height: 230px;
 
     object-fit: contain;
 
@@ -6037,17 +6037,17 @@ body::after {
 .main-navigation-icon {
     display: block;
 
-    width: 52px !important;
-    height: 52px !important;
+    width: 58px !important;
+    height: 58px !important;
 
-    max-width: 52px !important;
-    max-height: 52px !important;
+    max-width: 58px !important;
+    max-height: 58px !important;
 
     object-fit: contain;
 
     margin: 0 auto 10px;
 
-    flex: 0 0 52px;
+    flex: 0 0 58px;
 
     pointer-events: none;
     user-select: none;
@@ -6086,17 +6086,20 @@ body::after {
     align-items: center;
     justify-content: center;
 
-    gap: 14px;
+    gap: 10px;
 
-    margin-top: 24px;
+    margin-top: 14px;
 }
 
 .main-bottom-decoration img {
     display: block;
 
-    width: 190px;
-    max-width: 45%;
+    width: 220px;
+    max-width: 55%;
     height: auto;
+
+    opacity: 0.68;
+    filter: saturate(0.75);
 
     pointer-events: none;
     user-select: none;
@@ -6111,7 +6114,7 @@ body::after {
     width: 70px;
     height: 1px;
 
-    background: rgba(154, 130, 88, 0.55);
+    background: rgba(154, 130, 88, 0.32);
 }
 
 
