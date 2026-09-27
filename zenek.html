@@ -448,15 +448,52 @@
 const API_URL =
     "https://script.google.com/macros/s/AKfycbzJdxTJpTpn4ofBgbdcpqqEE1qpu22vLSOJaQqsL8PZ3De4VHeKgxRWs_nD6zWtPabJ6Q/exec";
 
-const songList = document.getElementById("songList");
-const songTable = document.getElementById("songTable");
-const emptyMessage = document.getElementById("emptyMessage");
 
-const artistInput = document.getElementById("artist");
-const songInput = document.getElementById("song");
-const noteInput = document.getElementById("note");
+/* =========================
+   SAJÁT BÖNGÉSZŐ AZONOSÍTÓ
+========================= */
 
-const addSongButton = document.getElementById("addSongButton");
+let ownerToken =
+    localStorage.getItem(
+        "weddingMusicOwnerToken"
+    );
+
+
+if (!ownerToken) {
+
+    ownerToken =
+        crypto.randomUUID();
+
+    localStorage.setItem(
+        "weddingMusicOwnerToken",
+        ownerToken
+    );
+}
+
+
+const songList =
+    document.getElementById("songList");
+
+const songTable =
+    document.getElementById("songTable");
+
+const emptyMessage =
+    document.getElementById("emptyMessage");
+
+const artistInput =
+    document.getElementById("artist");
+
+const songInput =
+    document.getElementById("song");
+
+const noteInput =
+    document.getElementById("note");
+
+const addSongButton =
+    document.getElementById("addSongButton");
+
+
+let editingSongId = null;
 
 
 /* =========================
@@ -467,55 +504,197 @@ async function loadSongs() {
 
     try {
 
-        const response = await fetch(
-            API_URL + "?action=getSongs"
-        );
+        const response =
+            await fetch(
+                API_URL +
+                "?action=getSongs"
+            );
+
 
         if (!response.ok) {
-            throw new Error("Nem sikerült betölteni a listát.");
+
+            throw new Error(
+                "Nem sikerült betölteni a listát."
+            );
         }
 
-        const songs = await response.json();
+
+        const songs =
+            await response.json();
+
 
         songList.innerHTML = "";
 
+
         if (!songs.length) {
 
-            songTable.style.display = "none";
-            emptyMessage.style.display = "block";
+            songTable.style.display =
+                "none";
+
+            emptyMessage.style.display =
+                "block";
+
             return;
         }
 
-        songTable.style.display = "table";
-        emptyMessage.style.display = "none";
+
+        songTable.style.display =
+            "table";
+
+        emptyMessage.style.display =
+            "none";
 
 
         songs.forEach(item => {
 
-            const row = document.createElement("tr");
+            const row =
+                document.createElement("tr");
 
-            const artistCell = document.createElement("td");
-            const songCell = document.createElement("td");
-            const noteCell = document.createElement("td");
 
-            artistCell.textContent = item.artist || "";
-            songCell.textContent = item.song || "";
-            noteCell.textContent = item.note || "";
+            const artistCell =
+                document.createElement("td");
 
-            row.appendChild(artistCell);
-            row.appendChild(songCell);
-            row.appendChild(noteCell);
+            const songCell =
+                document.createElement("td");
 
-            songList.appendChild(row);
+            const noteCell =
+                document.createElement("td");
+
+
+            artistCell.textContent =
+                item.artist || "";
+
+            songCell.textContent =
+                item.song || "";
+
+            noteCell.textContent =
+                item.note || "";
+
+
+            /*
+            Csak akkor jelennek meg
+            a gombok, ha ezt a zenét
+            erről a böngészőről küldték.
+            */
+
+            if (
+                item.id &&
+                item.ownerToken ===
+                ownerToken
+            ) {
+
+                const controls =
+                    document.createElement(
+                        "div"
+                    );
+
+                controls.className =
+                    "song-controls";
+
+
+                const editButton =
+                    document.createElement(
+                        "button"
+                    );
+
+                editButton.type =
+                    "button";
+
+                editButton.className =
+                    "song-edit-button";
+
+                editButton.innerHTML =
+                    "✏️";
+
+                editButton.title =
+                    "Szerkesztés";
+
+
+                editButton.addEventListener(
+                    "click",
+                    () => {
+
+                        startEditing(
+                            item
+                        );
+                    }
+                );
+
+
+                const deleteButton =
+                    document.createElement(
+                        "button"
+                    );
+
+                deleteButton.type =
+                    "button";
+
+                deleteButton.className =
+                    "song-delete-button";
+
+                deleteButton.innerHTML =
+                    "🗑️";
+
+                deleteButton.title =
+                    "Törlés";
+
+
+                deleteButton.addEventListener(
+                    "click",
+                    () => {
+
+                        deleteSong(
+                            item
+                        );
+                    }
+                );
+
+
+                controls.appendChild(
+                    editButton
+                );
+
+                controls.appendChild(
+                    deleteButton
+                );
+
+
+                noteCell.appendChild(
+                    controls
+                );
+            }
+
+
+            row.appendChild(
+                artistCell
+            );
+
+            row.appendChild(
+                songCell
+            );
+
+            row.appendChild(
+                noteCell
+            );
+
+
+            songList.appendChild(
+                row
+            );
         });
+
 
     } catch (error) {
 
         console.error(error);
 
+
         songList.innerHTML = `
             <tr>
-                <td colspan="3" style="text-align:center;">
+                <td
+                    colspan="3"
+                    style="text-align:center;"
+                >
                     A zenelistát most nem sikerült betölteni.
                 </td>
             </tr>
@@ -525,14 +704,19 @@ async function loadSongs() {
 
 
 /* =========================
-   ÚJ ZENE HOZZÁADÁSA
+   HOZZÁADÁS / MENTÉS
 ========================= */
 
-async function addSong() {
+async function saveSong() {
 
-    const artist = artistInput.value.trim();
-    const song = songInput.value.trim();
-    const note = noteInput.value.trim();
+    const artist =
+        artistInput.value.trim();
+
+    const song =
+        songInput.value.trim();
+
+    const note =
+        noteInput.value.trim();
 
 
     if (!artist || !song) {
@@ -545,24 +729,81 @@ async function addSong() {
     }
 
 
-    addSongButton.disabled = true;
-    addSongButton.textContent = "Hozzáadás...";
+    addSongButton.disabled =
+        true;
+
+
+    if (editingSongId) {
+
+        addSongButton.textContent =
+            "Mentés...";
+
+    } else {
+
+        addSongButton.textContent =
+            "Hozzáadás...";
+    }
 
 
     try {
 
-        const formData = new URLSearchParams();
-
-        formData.append("artist", artist);
-        formData.append("song", song);
-        formData.append("note", note);
+        const formData =
+            new URLSearchParams();
 
 
-        await fetch(API_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: formData
-        });
+        formData.append(
+            "ownerToken",
+            ownerToken
+        );
+
+
+        formData.append(
+            "artist",
+            artist
+        );
+
+
+        formData.append(
+            "song",
+            song
+        );
+
+
+        formData.append(
+            "note",
+            note
+        );
+
+
+        if (editingSongId) {
+
+            formData.append(
+                "action",
+                "edit"
+            );
+
+            formData.append(
+                "id",
+                editingSongId
+            );
+
+        } else {
+
+            formData.append(
+                "action",
+                "add"
+            );
+        }
+
+
+        await fetch(
+            API_URL,
+            {
+                method: "POST",
+                mode: "no-cors",
+                body: formData
+            }
+        );
 
 
         artistInput.value = "";
@@ -570,16 +811,19 @@ async function addSong() {
         noteInput.value = "";
 
 
-        addSongButton.textContent = "✓ Hozzáadva";
+        editingSongId = null;
 
 
-        /*
-        Adunk a Google Sheetnek egy kis időt,
-        majd újratöltjük a közös listát.
-        */
+        addSongButton.textContent =
+            "✓ Mentve";
 
-        await new Promise(resolve =>
-            setTimeout(resolve, 1200)
+
+        await new Promise(
+            resolve =>
+                setTimeout(
+                    resolve,
+                    1200
+                )
         );
 
 
@@ -591,35 +835,150 @@ async function addSong() {
             addSongButton.textContent =
                 "＋ Hozzáadás a listához";
 
-        }, 1800);
+        }, 1500);
 
 
     } catch (error) {
 
         console.error(error);
 
+
         alert(
-            "Nem sikerült hozzáadni a zenét. Kérlek, próbáld újra."
+            "Nem sikerült menteni. Kérlek, próbáld újra."
         );
+
 
         addSongButton.textContent =
             "＋ Hozzáadás a listához";
     }
 
 
-    addSongButton.disabled = false;
+    addSongButton.disabled =
+        false;
 }
 
 
-/* Gomb */
+/* =========================
+   SZERKESZTÉS
+========================= */
+
+function startEditing(item) {
+
+    editingSongId =
+        item.id;
+
+
+    artistInput.value =
+        item.artist || "";
+
+    songInput.value =
+        item.song || "";
+
+    noteInput.value =
+        item.note || "";
+
+
+    addSongButton.textContent =
+        "✓ Módosítás mentése";
+
+
+    artistInput.focus();
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================
+   TÖRLÉS
+========================= */
+
+async function deleteSong(item) {
+
+    const confirmed =
+        confirm(
+            `Biztosan törlöd ezt a zenét?\n\n${item.artist} – ${item.song}`
+        );
+
+
+    if (!confirmed) {
+
+        return;
+    }
+
+
+    try {
+
+        const formData =
+            new URLSearchParams();
+
+
+        formData.append(
+            "action",
+            "delete"
+        );
+
+        formData.append(
+            "id",
+            item.id
+        );
+
+        formData.append(
+            "ownerToken",
+            ownerToken
+        );
+
+
+        await fetch(
+            API_URL,
+            {
+                method: "POST",
+                mode: "no-cors",
+                body: formData
+            }
+        );
+
+
+        await new Promise(
+            resolve =>
+                setTimeout(
+                    resolve,
+                    1200
+                )
+        );
+
+
+        await loadSongs();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        alert(
+            "Nem sikerült törölni a zenét."
+        );
+    }
+}
+
+
+/* =========================
+   GOMB
+========================= */
 
 addSongButton.addEventListener(
     "click",
-    addSong
+    saveSong
 );
 
 
-/* Enterrel is beküldhető */
+/* =========================
+   ENTERREL IS MŰKÖDIK
+========================= */
 
 [
     artistInput,
@@ -631,17 +990,21 @@ addSongButton.addEventListener(
         "keydown",
         event => {
 
-            if (event.key === "Enter") {
-                addSong();
-            }
+            if (
+                event.key ===
+                "Enter"
+            ) {
 
+                saveSong();
+            }
         }
     );
-
 });
 
 
-/* Oldal megnyitásakor betöltjük a Sheetet */
+/* =========================
+   INDÍTÁS
+========================= */
 
 loadSongs();
 </script>
