@@ -6007,3 +6007,35 @@ body::after {
         margin-top: 11px;
     }
 }
+
+/* ==================================================
+   ZENEKÉRŐ OLDAL – LAPTOP / DESKTOP
+   Mobil nézetet NEM módosítja
+================================================== */
+
+@media (min-width: 901px) {
+
+    body:has(.playlist-page),
+    body:has(.music-page) {
+        width: 100%;
+    }
+
+    .playlist-page,
+    .music-page,
+    .playlist-container,
+    .music-container {
+        width: min(1180px, 88vw) !important;
+        max-width: 1180px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .playlist-form,
+    .music-form,
+    .song-form,
+    .playlist-list,
+    .song-list {
+        width: 100% !important;
+        max-width: none !important;
+    }
+}
