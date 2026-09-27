@@ -38,12 +38,6 @@
             user-select: none;
         }
         
-        .botanical-top {
-            width: 190px;
-            top: 115px;
-            right: -25px;
-        }
-        
         .botanical-bottom {
             width: 220px;
             bottom: 70px;
@@ -52,18 +46,38 @@
         
         @media (max-width: 520px) {
         
-            .botanical-top {
-                width: 150px;
-                top: 105px;
-                right: -20px;
-            }
-        
             .botanical-bottom {
                 width: 185px;
                 bottom: 65px;
                 left: 0;
             }
-        }        
+        }   
+
+        .top-decoration {
+            height: 90px;
+            position: relative;
+        }
+        
+        .top-decoration img {
+            position: absolute;
+            width: 190px;
+            right: -35px;
+            top: -25px;
+            pointer-events: none;
+        }
+        
+        @media (max-width: 520px) {
+            .top-decoration {
+                height: 80px;
+            }
+        
+            .top-decoration img {
+                width: 165px;
+                right: -25px;
+                top: -20px;
+            }
+        }
+        
         .content {
             position: relative;
             z-index: 2;
@@ -400,12 +414,6 @@
 <main class="music-page">
 
     <img
-        src="assets/images/playlist/olive-bottom-right.png"
-        class="botanical botanical-top"
-        alt=""
-    >
-
-    <img
         src="assets/images/playlist/olive-bottom-left.png"
         class="botanical botanical-bottom"
         alt=""
@@ -417,6 +425,13 @@
             ← Vissza a meghívóhoz
         </a>
 
+        <div class="top-decoration">
+            <img
+                src="assets/images/playlist/olive-bottom-right.png"
+                alt=""
+            >
+        </div>
+        
         <header class="header">
 
             <p class="names">
