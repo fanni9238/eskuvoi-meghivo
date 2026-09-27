@@ -39,38 +39,32 @@
         }
         
         .botanical-top {
-            width: 330px;
-            top: -20px;
-            right: -85px;
+            width: 230px;
+            top: 5px;
+            right: -45px;
         }
         
         .botanical-bottom {
-            width: 330px;
-            bottom: 0;
-            left: -55px;
+            width: 250px;
+            bottom: 25px;
+            left: -25px;
         }
         
         @media (max-width: 520px) {
         
             .botanical-top {
-                width: 235px;
-                top: -15px;
-                right: -65px;
+                width: 190px;
+                top: 8px;
+                right: -40px;
             }
-        
+            
             .botanical-bottom {
-                width: 245px;
-                bottom: 0;
-                left: -35px;
+                width: 210px;
+                bottom: 25px;
+                left: -20px;
             }
         }
         
-            .botanical-bottom {
-                width: 290px;
-                bottom: -35px;
-                left: -90px;
-            }
-        }
         .content {
             position: relative;
             z-index: 2;
@@ -302,6 +296,25 @@
             transition:
                 transform 0.2s ease,
                 background 0.2s ease;
+        }
+
+        .song-edit-button svg,
+        .song-delete-button svg {
+            width: 15px;
+            height: 15px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        .song-edit-button {
+            color: #6f7d5d;
+        }
+        
+        .song-delete-button {
+            color: #8a654c;
         }
         
         .song-edit-button:hover,
@@ -668,8 +681,12 @@ async function loadSongs() {
                 editButton.className =
                     "song-edit-button";
 
-                editButton.innerHTML =
-                    "✏️";
+                editButton.innerHTML = `
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 20h4l11-11-4-4L4 16v4z"></path>
+                        <path d="M13.5 6.5l4 4"></path>
+                    </svg>
+                `;
 
                 editButton.title =
                     "Szerkesztés";
@@ -697,8 +714,15 @@ async function loadSongs() {
                 deleteButton.className =
                     "song-delete-button";
 
-                deleteButton.innerHTML =
-                    "🗑️";
+                deleteButton.innerHTML = `
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 7h14"></path>
+                        <path d="M9 7V4h6v3"></path>
+                        <path d="M7 7l1 13h8l1-13"></path>
+                        <path d="M10 10v7"></path>
+                        <path d="M14 10v7"></path>
+                    </svg>
+                `;
 
                 deleteButton.title =
                     "Törlés";
