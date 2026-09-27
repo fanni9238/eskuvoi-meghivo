@@ -1,1 +1,455 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Fanni & Zsombi – Zene kívánság</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #f7f4eb;
+            color: #59644b;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .music-page {
+            position: relative;
+            width: 100%;
+            max-width: 760px;
+            min-height: 100vh;
+            margin: 0 auto;
+            padding: 55px 18px 70px;
+            overflow: hidden;
+        }
+
+        /* Finom növényi díszítés */
+        .leaf {
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            pointer-events: none;
+            opacity: 0.16;
+        }
+
+        .leaf-top {
+            top: -70px;
+            right: -75px;
+            transform: rotate(20deg);
+        }
+
+        .leaf-bottom {
+            bottom: -80px;
+            left: -90px;
+            transform: rotate(205deg);
+        }
+
+        .leaf::before,
+        .leaf::after {
+            content: "";
+            position: absolute;
+        }
+
+        .leaf::before {
+            width: 190px;
+            height: 2px;
+            background: #758263;
+            left: 20px;
+            top: 110px;
+            transform: rotate(-30deg);
+        }
+
+        .leaf::after {
+            width: 150px;
+            height: 120px;
+            border-radius: 100% 0 100% 0;
+            border: 2px solid #758263;
+            left: 35px;
+            top: 45px;
+            transform: rotate(-25deg);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 38px;
+            color: #778268;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .names {
+            margin: 0;
+            color: #687457;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+        }
+
+        h1 {
+            margin: 13px 0 8px;
+            color: #566148;
+            font-size: clamp(32px, 8vw, 48px);
+            font-weight: normal;
+        }
+
+        .subtitle {
+            margin: 0;
+            color: #8a917e;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .gold-line {
+            width: 75px;
+            height: 1px;
+            margin: 22px auto 0;
+            background: #c6a96c;
+        }
+
+        /* Zene hozzáadása */
+        .add-card {
+            margin-bottom: 30px;
+            padding: 22px 18px;
+            background: rgba(255,255,255,0.48);
+            border: 1px solid rgba(191, 166, 111, 0.45);
+            border-radius: 16px;
+            box-shadow: 0 6px 24px rgba(72, 78, 62, 0.06);
+        }
+
+        .add-title {
+            margin: 0 0 18px;
+            text-align: center;
+            color: #606b51;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field-note {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            padding-left: 3px;
+            color: #747d67;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        input {
+            width: 100%;
+            min-width: 0;
+            height: 46px;
+            padding: 0 13px;
+            border: 1px solid #d8d6c9;
+            border-radius: 9px;
+            outline: none;
+            background: rgba(255,255,255,0.75);
+            color: #4f5845;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-color: #899574;
+            box-shadow: 0 0 0 3px rgba(137,149,116,0.12);
+        }
+
+        .add-button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 14px 18px;
+            border: 0;
+            border-radius: 9px;
+            background: #7d8d69;
+            color: white;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.04em;
+        }
+
+        /* Lista */
+        .list-title {
+            margin: 38px 0 15px;
+            text-align: center;
+            color: #697359;
+            font-size: 19px;
+            font-weight: normal;
+        }
+
+        .table-wrap {
+            overflow: hidden;
+            border: 1px solid rgba(122, 137, 103, 0.25);
+            border-radius: 13px;
+            background: rgba(255,255,255,0.35);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        th {
+            padding: 13px 8px;
+            background: #82926e;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+        }
+
+        th:nth-child(1) {
+            width: 34%;
+        }
+
+        th:nth-child(2) {
+            width: 40%;
+        }
+
+        th:nth-child(3) {
+            width: 26%;
+        }
+
+        td {
+            padding: 13px 9px;
+            border-bottom: 1px solid rgba(122,137,103,0.13);
+            color: #59634f;
+            font-size: 14px;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+            vertical-align: middle;
+        }
+
+        tbody tr:nth-child(even) {
+            background: rgba(222, 228, 213, 0.30);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .empty-message {
+            display: none;
+            padding: 30px 15px;
+            text-align: center;
+            color: #8b9183;
+            font-style: italic;
+        }
+
+        .footer-text {
+            margin: 32px auto 0;
+            max-width: 430px;
+            text-align: center;
+            color: #929688;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 520px) {
+            .music-page {
+                padding: 35px 12px 55px;
+            }
+
+            .back-link {
+                margin-bottom: 28px;
+            }
+
+            .add-card {
+                padding: 18px 12px;
+            }
+
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .field-note {
+                grid-column: auto;
+            }
+
+            th {
+                padding: 12px 4px;
+                font-size: 9px;
+            }
+
+            td {
+                padding: 12px 6px;
+                font-size: 12px;
+            }
+
+            th:nth-child(1) {
+                width: 31%;
+            }
+
+            th:nth-child(2) {
+                width: 39%;
+            }
+
+            th:nth-child(3) {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="music-page">
+
+    <div class="leaf leaf-top"></div>
+    <div class="leaf leaf-bottom"></div>
+
+    <div class="content">
+
+        <a href="index.html" class="back-link">
+            ← Vissza a meghívóhoz
+        </a>
+
+        <header class="header">
+
+            <p class="names">
+                FANNI &amp; ZSOMBI
+            </p>
+
+            <h1>Zene kívánság</h1>
+
+            <p class="subtitle">
+                Van egy szám, amire mindenképp táncolnál? 🎶<br>
+                Add hozzá a közös esküvői playlistünkhöz!
+            </p>
+
+            <div class="gold-line"></div>
+
+        </header>
+
+        <section class="add-card">
+
+            <h2 class="add-title">
+                ♫ Zene hozzáadása
+            </h2>
+
+            <div class="input-grid">
+
+                <div class="field">
+                    <label for="artist">Előadó</label>
+                    <input
+                        id="artist"
+                        type="text"
+                        placeholder="pl. ABBA"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="song">Zene címe</label>
+                    <input
+                        id="song"
+                        type="text"
+                        placeholder="pl. Mamma Mia"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="field field-note">
+                    <label for="note">Megjegyzés – opcionális</label>
+                    <input
+                        id="note"
+                        type="text"
+                        placeholder="Ide írhatsz nekünk valamit 🤎"
+                        autocomplete="off"
+                    >
+                </div>
+
+            </div>
+
+            <button
+                class="add-button"
+                id="addSongButton"
+                type="button"
+            >
+                ＋ Hozzáadás a listához
+            </button>
+
+        </section>
+
+        <h2 class="list-title">
+            Eddigi zene kívánságok
+        </h2>
+
+        <div class="table-wrap">
+
+            <table id="songTable">
+
+                <thead>
+                    <tr>
+                        <th>ELŐADÓ</th>
+                        <th>ZENE CÍME</th>
+                        <th>MEGJEGYZÉS</th>
+                    </tr>
+                </thead>
+
+                <tbody id="songList">
+
+                    <!-- Próbasor – később a Google Sheet tölti be -->
+                    <tr>
+                        <td>ABBA</td>
+                        <td>Money, Money, Money</td>
+                        <td></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div class="empty-message" id="emptyMessage">
+                Még nincs zene a listában. Legyél te az első! 🎶
+            </div>
+
+        </div>
+
+        <p class="footer-text">
+            A kívánságok közös listába kerülnek, így mindenki láthatja,
+            milyen zenékre készülünk táncolni. 🤎
+        </p>
+
+    </div>
+
+</main>
+
+</body>
+</html>
