@@ -247,13 +247,21 @@
         }
 
         td {
-            padding: 13px 9px;
+            padding: 17px 13px;
             border-bottom: 1px solid rgba(122,137,103,0.13);
             color: #59634f;
             font-size: 14px;
-            line-height: 1.35;
+            line-height: 1.4;
             overflow-wrap: anywhere;
             vertical-align: middle;
+        }
+        
+        td:first-child {
+            padding-left: 17px;
+        }
+        
+        td:last-child {
+            padding-right: 17px;
         }
 
         tbody tr:nth-child(even) {
@@ -263,6 +271,47 @@
         tbody tr:last-child td {
             border-bottom: 0;
         }
+
+        /* Saját zene szerkesztése / törlése */
+
+        .song-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 7px;
+        }
+        
+        .song-edit-button,
+        .song-delete-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        
+            width: 30px;
+            height: 30px;
+        
+            padding: 0;
+        
+            border: 1px solid rgba(122, 137, 103, 0.25);
+            border-radius: 50%;
+        
+            background: rgba(255, 255, 255, 0.65);
+        
+            cursor: pointer;
+        
+            font-size: 13px;
+            line-height: 1;
+        
+            box-shadow: 0 2px 6px rgba(72, 78, 62, 0.05);
+        }
+        
+        .song-edit-button:hover,
+        .song-delete-button:hover {
+            background: #ffffff;
+            transform: translateY(-1px);
+        }
+        
 
         .empty-message {
             display: none;
@@ -354,7 +403,28 @@
             }
 
             td {
-                padding: 12px 6px;
+                padding: 16px 9px;
+                font-size: 12px;
+                line-height: 1.4;
+            }
+            
+            td:first-child {
+                padding-left: 13px;
+            }
+            
+            td:last-child {
+                padding-right: 13px;
+            }
+            
+            .song-controls {
+                gap: 5px;
+                margin-top: 6px;
+            }
+            
+            .song-edit-button,
+            .song-delete-button {
+                width: 27px;
+                height: 27px;
                 font-size: 12px;
             }
 
