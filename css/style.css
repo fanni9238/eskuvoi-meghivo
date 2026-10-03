@@ -6038,3 +6038,45 @@ body::after {
         max-width: none !important;
     }
 }
+
+/* =========================================
+   ZENE KÍVÁNSÁG GOMB – LAPTOP / DESKTOP
+========================================= */
+
+@media (min-width: 769px) {
+
+    .music-request-button.sheet-button {
+        width: 100%;
+        max-width: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        padding: 14px 24px;
+
+        background: #748268;
+        border-color: #748268;
+        color: #ffffff;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 8px 18px rgba(72, 82, 62, 0.12);
+    }
+
+    .music-request-button.sheet-button:hover {
+        background: #66755c;
+        border-color: #66755c;
+
+        transform: translateY(-1px);
+    }
+
+    .music-request-button.sheet-button
+    .music-button-icon,
+    .music-request-button.sheet-button
+    .music-button-arrow {
+        color: #ffffff;
+    }
+}
