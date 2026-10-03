@@ -6040,62 +6040,128 @@ body::after {
 }
 
 /* =========================================
-   ZENE KÍVÁNSÁG GOMB
+   ZENE KÍVÁNSÁG – ELEGÁNS GOMB
 ========================================= */
 
-.music-request-buttons {
-    display: flex;
-    justify-content: center;
+.music-request-buttons.music-request-elegant {
     width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.music-request-button.sheet-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+
+/* ZÖLD GOMB */
+
+.music-request-elegant .sheet-button {
+    width: 380px;
+    max-width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    padding: 15px 25px;
 
     background: #748268;
-    border-color: #748268;
+    border: 1px solid #748268;
+    border-radius: 30px;
+
     color: #ffffff;
 
     box-shadow:
-        0 8px 18px rgba(72, 82, 62, 0.12);
+        0 8px 20px rgba(72, 82, 62, 0.16);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.music-request-button.sheet-button
-.music-button-icon,
-.music-request-button.sheet-button
-.music-button-arrow {
+
+/* ZENE IKON */
+
+.music-request-elegant .music-button-icon {
+    font-size: 20px;
     color: #ffffff;
 }
 
 
-/* LAPTOP / DESKTOP */
-@media (min-width: 769px) {
+/* NYÍL */
 
-    .music-request-button.sheet-button {
-        width: 380px;
-        max-width: 100%;
-        padding: 14px 24px;
-        border-radius: 12px;
-    }
+.music-request-elegant .music-button-arrow {
+    margin-left: 6px;
 
-    .music-request-button.sheet-button:hover {
-        background: #66755c;
-        border-color: #66755c;
-        transform: translateY(-1px);
-    }
+    font-size: 19px;
+    color: #ffffff;
+
+    transition: transform 0.2s ease;
 }
 
 
-/* TELEFON */
+/* HOVER */
+
+.music-request-elegant .sheet-button:hover {
+    background: #66755c;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 24px rgba(72, 82, 62, 0.20);
+}
+
+.music-request-elegant .sheet-button:hover
+.music-button-arrow {
+    transform: translateX(4px);
+}
+
+
+/* KÉT OLDALSÓ NÖVÉNY */
+
+.music-button-leaf {
+    display: block;
+
+    font-size: 38px;
+    line-height: 1;
+
+    opacity: 0.65;
+
+    color: #82926e;
+
+    pointer-events: none;
+}
+
+.music-button-leaf-left {
+    transform: rotate(-25deg);
+}
+
+.music-button-leaf-right {
+    transform: scaleX(-1) rotate(-25deg);
+}
+
+
+/* =========================
+   TELEFON
+========================= */
+
 @media (max-width: 768px) {
 
-    .music-request-button.sheet-button {
+    .music-request-buttons.music-request-elegant {
+        margin-top: 16px;
+        gap: 0;
+    }
+
+    .music-request-elegant .sheet-button {
         width: 100%;
-        padding: 13px 18px;
+        padding: 13px 16px;
+        border-radius: 14px;
+    }
+
+    .music-button-leaf {
+        display: none;
     }
 }
