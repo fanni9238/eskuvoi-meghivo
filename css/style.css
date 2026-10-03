@@ -6040,43 +6040,59 @@ body::after {
 }
 
 /* =========================================
-   ZENE KÍVÁNSÁG GOMB – LAPTOP / DESKTOP
+   ZENE KÍVÁNSÁG GOMB
 ========================================= */
 
+.music-request-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.music-request-button.sheet-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background: #748268;
+    border-color: #748268;
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 18px rgba(72, 82, 62, 0.12);
+}
+
+.music-request-button.sheet-button
+.music-button-icon,
+.music-request-button.sheet-button
+.music-button-arrow {
+    color: #ffffff;
+}
+
+
+/* LAPTOP / DESKTOP */
 @media (min-width: 769px) {
 
     .music-request-button.sheet-button {
-        width: 100%;
-        max-width: none;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-
+        width: 380px;
+        max-width: 100%;
         padding: 14px 24px;
-
-        background: #748268;
-        border-color: #748268;
-        color: #ffffff;
-
         border-radius: 12px;
-
-        box-shadow:
-            0 8px 18px rgba(72, 82, 62, 0.12);
     }
 
     .music-request-button.sheet-button:hover {
         background: #66755c;
         border-color: #66755c;
-
         transform: translateY(-1px);
     }
+}
 
-    .music-request-button.sheet-button
-    .music-button-icon,
-    .music-request-button.sheet-button
-    .music-button-arrow {
-        color: #ffffff;
+
+/* TELEFON */
+@media (max-width: 768px) {
+
+    .music-request-button.sheet-button {
+        width: 100%;
+        padding: 13px 18px;
     }
 }
