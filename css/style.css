@@ -6120,32 +6120,33 @@ body::after {
 }
 
 
-/* KÉT OLDALSÓ NÖVÉNY */
+/* KÉT OLDALSÓ AKVARELL NÖVÉNY */
 
 .music-button-leaf {
-    width: 82px;
-    height: auto;
+    width: 105px;
+    height: 72px;
+
     object-fit: contain;
 
     opacity: 0.72;
+
     pointer-events: none;
     user-select: none;
+
+    flex-shrink: 0;
 }
 
+/* BAL OLDALI NÖVÉNY */
 .music-button-leaf-left {
-    transform: rotate(-18deg);
+    transform: scaleX(-1) rotate(12deg);
+    margin-right: -12px;
 }
 
+/* JOBB OLDALI NÖVÉNY */
 .music-button-leaf-right {
-    transform: scaleX(-1) rotate(-18deg);
+    transform: rotate(12deg);
+    margin-left: -12px;
 }
-
-@media (max-width: 768px) {
-    .music-button-leaf {
-        display: none;
-    }
-}
-
 /* =========================
    TELEFON
 ========================= */
