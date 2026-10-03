@@ -6046,6 +6046,9 @@ body::after {
 .music-request-buttons {
     display: flex;
     justify-content: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .music-request-button.sheet-button {
