@@ -6114,7 +6114,7 @@ body::after {
         0 10px 24px rgba(72, 82, 62, 0.20);
 }
 
-.music-request-elegant .sheet-button:hover
+.music-request-elegant .sheet-button:hover    
 .music-button-arrow {
     transform: translateX(4px);
 }
@@ -6123,26 +6123,28 @@ body::after {
 /* KÉT OLDALSÓ NÖVÉNY */
 
 .music-button-leaf {
-    display: block;
+    width: 82px;
+    height: auto;
+    object-fit: contain;
 
-    font-size: 38px;
-    line-height: 1;
-
-    opacity: 0.65;
-
-    color: #82926e;
-
+    opacity: 0.72;
     pointer-events: none;
+    user-select: none;
 }
 
 .music-button-leaf-left {
-    transform: rotate(-25deg);
+    transform: rotate(-18deg);
 }
 
 .music-button-leaf-right {
-    transform: scaleX(-1) rotate(-25deg);
+    transform: scaleX(-1) rotate(-18deg);
 }
 
+@media (max-width: 768px) {
+    .music-button-leaf {
+        display: none;
+    }
+}
 
 /* =========================
    TELEFON
