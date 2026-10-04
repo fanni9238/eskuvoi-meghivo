@@ -1,3 +1,9 @@
+const isAndroid = /Android/i.test(navigator.userAgent);
+
+if (isAndroid) {
+    document.documentElement.classList.add("android");
+}
+
 const sealButton = document.querySelector(".seal-button");
 const openingScreen = document.querySelector(".opening-screen");
 
