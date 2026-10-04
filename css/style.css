@@ -6195,3 +6195,9 @@ body::after {
         white-space: nowrap;
     }
 }
+
+html.android .information-section .info-card .info-heading {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.2px;
+}
