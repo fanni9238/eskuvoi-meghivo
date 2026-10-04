@@ -3212,6 +3212,10 @@ body::after {
     max-height: 650px;
     padding-bottom: 14px;
     opacity: 1;
+transform: translateY(3px);
+}
+
+.timeline-item:last-child time {
     transform: translateY(0);
 }
 
