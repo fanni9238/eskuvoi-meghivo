@@ -727,7 +727,7 @@ body::after {
 @keyframes envelopeFloat {
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateY(2);
     }
 
     50% {
