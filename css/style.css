@@ -6201,3 +6201,35 @@ html.android .information-section .info-card .info-heading {
     line-height: 1.1 !important;
     letter-spacing: -0.2px;
 }
+
+/* ==================================================
+   ANDROID – PROGRAM
+   2. OPCIÓ:
+   időpont a teljes cím + leírás blokk közepén
+================================================== */
+
+@media (max-width: 700px) {
+
+    html.android .program-section .timeline-item {
+        align-items: center;
+    }
+
+    html.android .program-section .timeline-item time {
+        align-self: center;
+
+        top: auto !important;
+        bottom: auto !important;
+
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+
+        transform: none !important;
+    }
+
+    html.android .program-section .timeline-content {
+        align-self: center;
+
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
