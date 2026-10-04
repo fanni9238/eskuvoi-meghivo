@@ -1501,7 +1501,7 @@ body::after {
 
         align-self: center;
 
-        transform: translateY(4px);
+        transform: translateY(0px);
     }
 
     .timeline-content {
