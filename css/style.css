@@ -6182,10 +6182,13 @@ html.android .information-section .info-card .info-heading {
         margin-bottom: 0;
     }
 }
+
 /* ==================================================
-   HASZNOS TUDNIVALÓK – SZÖVEGEK SORKIZÁRÁSA
+   HASZNOS TUDNIVALÓK – SORKIZÁRÁS CSAK LAPTOPON
 ================================================== */
 
-.information-section .info-panel p {
-    text-align: justify;
+@media (min-width: 701px) {
+    .information-section .info-panel p {
+        text-align: justify;
+    }
 }
