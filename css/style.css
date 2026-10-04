@@ -6168,6 +6168,10 @@ html.android .information-section .info-card .info-heading {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
 
+        transform: translateY(3px) !important;
+    }
+
+    html.android .program-section .timeline-item:last-child time {
         transform: none !important;
     }
 
