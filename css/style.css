@@ -6188,7 +6188,7 @@ body::after {
 @media (max-width: 700px) {
 
     html.android .information-section .info-heading {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.05;
         letter-spacing: -0.25px;
 
