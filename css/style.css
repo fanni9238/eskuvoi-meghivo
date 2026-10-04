@@ -6164,3 +6164,26 @@ body::after {
     }
 }
 
+/* ==================================================
+   ANDROID – PROGRAM CÍMEK KISEBB MÉRETE
+   iPhone-t nem érinti
+================================================== */
+
+@media (max-width: 700px) {
+
+    html.android .program-section .timeline-content h3 {
+        font-size: 18px;
+        line-height: 1.08;
+        letter-spacing: -0.35px;
+
+        white-space: nowrap;
+    }
+
+    /* Leghosszabb cím */
+    html.android .program-section .timeline-content h3.photo-title {
+        font-size: 15px;
+        letter-spacing: -0.45px;
+
+        white-space: nowrap;
+    }
+}
