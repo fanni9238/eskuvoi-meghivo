@@ -6189,26 +6189,30 @@ html.android .information-section .info-card .info-heading {
     }
 }
 
-/* Fontos tudnivaló – egysoros megjelenítés */
+/* FONTOS TUDNIVALÓ – EREDETI MÉRET, EGY SOR */
 
 @media (min-width: 900px) {
 
     .information-hint.important-hint {
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
         align-items: center;
         justify-content: center;
-        flex-wrap: nowrap;
-        gap: 5px;
-        white-space: nowrap;
+
+        gap: 4px;
         width: 100%;
-        max-width: 100%;
+
+        font-size: 14px !important;
+        line-height: 1.4;
+        white-space: nowrap;
     }
 
-    .important-hint-label,
-    .important-hint-text,
+    .important-hint .important-hint-label,
     .important-hint strong,
+    .important-hint .important-hint-text,
     .important-hint .hint-arrow {
+        font-size: inherit !important;
         white-space: nowrap;
         flex-shrink: 0;
     }
