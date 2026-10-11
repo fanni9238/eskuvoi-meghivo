@@ -6203,7 +6203,7 @@ html.android .information-section .info-card .info-heading {
         gap: 4px;
         width: 100%;
 
-        font-size: 14px !important;
+        font-size: 12px !important;
         line-height: 1.4;
         white-space: nowrap;
     }
