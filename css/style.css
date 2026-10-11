@@ -149,7 +149,7 @@ body::after {
         );
 
     animation:
-        envelopeFloat 5.5s ease-in-out infinite;
+        animation: none;
 
     transition:
         opacity 0.45s ease,
