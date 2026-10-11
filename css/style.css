@@ -6188,3 +6188,11 @@ html.android .information-section .info-card .info-heading {
         text-align: justify;
     }
 }
+
+/* Fontos tudnivaló – egy sorban asztali gépen */
+@media (min-width: 900px) {
+    .information-hint.important-hint {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
