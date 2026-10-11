@@ -3229,10 +3229,7 @@ transform: translateY(3px);
 }
 
 .information-hint::before {
-    content: "↓";
-    display: inline-block;
-    margin-right: 7px;
-    color: #b9904d;
+    content: none;
 }
 
 
