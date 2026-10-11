@@ -6189,10 +6189,27 @@ html.android .information-section .info-card .info-heading {
     }
 }
 
-/* Fontos tudnivaló – egy sorban asztali gépen */
+/* Fontos tudnivaló – egysoros megjelenítés */
+
 @media (min-width: 900px) {
+
     .information-hint.important-hint {
-        font-size: 14px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 5px;
         white-space: nowrap;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .important-hint-label,
+    .important-hint-text,
+    .important-hint strong,
+    .important-hint .hint-arrow {
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 }
