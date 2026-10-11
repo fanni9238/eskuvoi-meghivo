@@ -6191,3 +6191,17 @@ html.android .information-section .info-card .info-heading {
         text-align: justify;
     }
 }
+
+/* BORÍTÉK ANIMÁCIÓ STABILIZÁLÁSA */
+
+.envelope {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.envelope-image {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
