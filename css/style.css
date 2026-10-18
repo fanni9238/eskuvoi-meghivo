@@ -6217,3 +6217,21 @@ html.android .information-section .info-card .info-heading {
         flex-shrink: 0;
     }
 }
+
+/* DRESS CODE – SZÍNES SZAVAK */
+
+.dress-brown {
+    color: #795548 !important;
+}
+
+.dress-beige {
+    color: #B59A70 !important;
+}
+
+.dress-olive {
+    color: #65754B !important;
+}
+
+.dress-burgundy {
+    color: #873E50 !important;
+}
